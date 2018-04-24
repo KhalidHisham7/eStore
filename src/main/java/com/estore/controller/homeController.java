@@ -9,11 +9,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Controller
 public class homeController {
+
+    private Path path;
 
 
     @Autowired
@@ -71,11 +80,45 @@ public class homeController {
     }
 
     @RequestMapping(value = "/admin/productInventory/addProduct", method = RequestMethod.POST)
-    public String addProductPost(@ModelAttribute("product") Product product)
+    public String addProductPost(@ModelAttribute("product") Product product, HttpServletRequest request)
     {
         productDao.addProduct(product);
 
+        MultipartFile productImage = product.getProductImage();
+        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + product.getProductId() + ".png");
+
+        if(productImage != null && !productImage.isEmpty())
+        {
+            try {
+                productImage.transferTo(new File(path.toString()));
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException("Product image saving failed", e);
+            }
+        }
+
         //return "productInventory";
+        return "redirect:/admin/productInventory";
+    }
+
+    @RequestMapping("/admin/productInventory/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable String id, Model model, HttpServletRequest request)
+    {
+        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + id + ".png");
+
+        if(Files.exists(path))
+        {
+            try {
+                Files.delete(path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        productDao.deleteProduct(id);
+
         return "redirect:/admin/productInventory";
     }
 }
