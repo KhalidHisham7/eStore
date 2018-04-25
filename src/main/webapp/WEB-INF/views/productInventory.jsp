@@ -21,6 +21,7 @@
                 <th>Condition</th>
                 <th>Price</th>
                 <th>more</th>
+                <th>Edit</th>
                 <th></th>
             </tr>
             </thead>
@@ -33,6 +34,7 @@
                     <td>${product.productCondition}</td>
                     <td>${product.productPrice} USD</td>
                     <td><a href="<spring:url value="/productList/viewProduct/${product.productId}"/>">more</a></td>
+                    <td><a href="<spring:url value="/admin/productInventory/editProduct/${product.productId}"/>">Edit</a></td>
                     <td><a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productId}"/>">delete</a></td>
                 </tr>
             </c:forEach>
