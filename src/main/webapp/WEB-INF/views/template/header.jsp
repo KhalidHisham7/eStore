@@ -15,31 +15,42 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>GUM</title>
+
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">
+
+    <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
+
 </head>
-<body>
+<body style="background: whitesmoke">
 
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Carousel</a>
+        <a class="navbar-brand" href="<c:url value="/" />">GUM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="<c:url value="/" />">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<c:url value="/productList"/>">Products</a>
                 </li>
             </ul>
+
+            <ul class="nav navbar-nav pull-right" style="margin-right: 10px; margin-bottom: 8px">
+                <li><a href="<c:url value="/admin" />">Admin</a></li>
+            </ul>
+
             <form class="form-inline mt-2 mt-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

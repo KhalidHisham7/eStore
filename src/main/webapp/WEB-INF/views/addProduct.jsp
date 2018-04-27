@@ -1,4 +1,6 @@
+<%--
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
+--%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 
@@ -12,7 +14,7 @@
             <p class="lead">Fill the below information to add a product:</p>
         </div>
 
-        <from:form action="${pageContext.request.contextPath}/admin/productInventory/addProduct" method="post"
+        <form:form action="${pageContext.request.contextPath}/admin/productInventory/addProduct" method="post"
                    commandName="product" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -74,6 +76,6 @@
         <input type="submit" value="submit" class="btn btn-default">
         <a href="<c:url value="/admin/productInventory" />" class="btn btn-default">Cancel</a>
 
-        </from:form>
+        </form:form>
 
 <%@include file="/WEB-INF/views/template/footer.jsp" %>
