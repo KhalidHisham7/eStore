@@ -48,7 +48,8 @@
             </ul>
 
             <ul class="nav navbar-nav pull-right" style="margin-right: 10px; margin-bottom: 8px">
-                <li><a href="<c:url value="/admin" />">Admin</a></li>
+                <li style="margin-right: 10px;"><a href="<c:url value="/admin" />">Admin</a></li>
+                <li><a href="<c:url value="/register" />">Register</a></li>
             </ul>
 
             <form class="form-inline mt-2 mt-md-0">

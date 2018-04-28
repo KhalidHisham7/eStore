@@ -1,15 +1,14 @@
 package com.estore.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Users {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "usersId", updatable = false, nullable = false)
     private int usersId;
     private String username;
     private String password;

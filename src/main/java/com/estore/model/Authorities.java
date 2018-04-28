@@ -1,15 +1,14 @@
 package com.estore.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Authorities {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "authoritiesId", updatable = false, nullable = false)
     private int authoritiesId;
     private String username;
     private String authority;
