@@ -14,7 +14,7 @@
                     <div class="carousel-caption text-left">
                         <h1>Welcome to our website!</h1>
                         <p>Here you can browse available products and buy whatever you like. Want to get started?</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="<c:url value="/register" />" role="button">Sign up today</a></p>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     <div class="carousel-caption">
                         <h1>How about taking a tour before you join?</h1>
                         <p>Let's go through some of the products we have.</p>
-                        <p><a class="btn btn-lg btn-primary" href="<c:url value="/productList" />" role="button">Learn more</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="<c:url value="/product/productList" />" role="button">Learn more</a></p>
                     </div>
                 </div>
             </div>

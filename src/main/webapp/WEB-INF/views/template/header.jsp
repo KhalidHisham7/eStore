@@ -34,7 +34,8 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="<c:url value="/" />">GUM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -48,8 +49,21 @@
             </ul>
 
             <ul class="nav navbar-nav pull-right" style="margin-right: 10px; margin-bottom: 8px">
-                <li style="margin-right: 10px;"><a href="<c:url value="/admin" />">Admin</a></li>
-                <li><a href="<c:url value="/register" />">Register</a></li>
+                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                    <li style="margin-right: 10px;"><a>Welcome ${pageContext.request.userPrincipal.name}</a></li>
+                    <li style="margin-right: 10px;"><a href="<c:url value="/j_spring_security_logout" />">Logout</a>
+                    </li>
+                    <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+                        <li style="margin-right: 10px;"><a href="<c:url value="/customer/cart" />">Cart</a></li>
+                    </c:if>
+                    <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+                        <li style="margin-right: 10px;"><a href="<c:url value="/admin" />">Admin</a></li>
+                    </c:if>
+                </c:if>
+                <c:if test="${pageContext.request.userPrincipal.name == null}">
+                    <li style="margin-right: 10px;"><a href="<c:url value="/login" />">Login</a></li>
+                    <li><a href="<c:url value="/register" />">Register</a></li>
+                </c:if>
             </ul>
 
             <form class="form-inline mt-2 mt-md-0">

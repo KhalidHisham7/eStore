@@ -44,7 +44,7 @@
                     <p ng-controller="cartCtrl">
                         <a href="<c:url value="${url}" />" class="btn btn-default">Back</a>
                         <a href="#" class="btn btn-warning btn-large" ng-click="addToCart('${product.productId}')">Order Now</a>
-                        <a href="<spring:url value="/cart" />" class="btn btn-default">View Cart</a>
+                        <a href="<spring:url value="/customer/cart" />" class="btn btn-default">View Cart</a>
                     </p>
                 </div>
             </div>
