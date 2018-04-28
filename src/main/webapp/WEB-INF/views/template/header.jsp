@@ -43,7 +43,7 @@
                     <a class="nav-link" href="<c:url value="/" />">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/productList"/>">Products</a>
+                    <a class="nav-link" href="<c:url value="/product/productList"/>">Products</a>
                 </li>
             </ul>
 

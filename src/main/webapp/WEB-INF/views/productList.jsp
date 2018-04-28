@@ -31,7 +31,7 @@
                     <td>${product.productCategory}</td>
                     <td>${product.productCondition}</td>
                     <td>${product.productPrice} USD</td>
-                    <td><a href="<spring:url value="/productList/viewProduct/${product.productId}"/>">more</a></td>
+                    <td><a href="<spring:url value="/product/viewProduct/${product.productId}"/>">more</a></td>
                 </tr>
             </c:forEach>
         </table>

@@ -12,7 +12,7 @@
             <p class="lead">Fill the below information to edit a product:</p>
         </div>
 
-        <from:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post"
+        <from:form action="${pageContext.request.contextPath}/admin/product/editProduct" method="post"
                    commandName="product" enctype="multipart/form-data">
 
         <form:hidden path="productId" value="${product.productId}" />
